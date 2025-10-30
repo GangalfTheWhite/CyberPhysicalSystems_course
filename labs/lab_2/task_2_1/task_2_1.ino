@@ -3,26 +3,31 @@
 // Arduino: attachInterrupt
 // Register: EICRA, EIMSK, EIFR
 
-#include "sam.h"
+//#include "sam.h"
 
 #define PIN_LED 5 // D13 -> PB5
 #define PIN_BUTTON 2 // D2 -> PD2
 
-volatile byte LED_state = LOW;
+volatile byte LED_state = HIGH;
 
 // Using arduino functions
 void setup(){
+  Serial.begin(9600);
   pinMode(PIN_LED, OUTPUT);
-  pinMode(PIN_BUTTON, INPUT);
-  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), toggleLED, FALLING);
+  pinMode(PIN_BUTTON, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(PIN_BUTTON), toggleLED, FALLING);
 }
 
 void loop(){
-  digitalWrite(LED_PIN, LED_state);
+  digitalWrite(PIN_LED, LED_state);
+  Serial.print("Trigger: ");
+  Serial.println(LED_state);
+  delay(1000);
+  Serial.println("loop end");
 }
 
 void toggleLED(){
-  LED_state != LED_state;
+  LED_state = !LED_state;
 }
 
 // Baremetal version (WIP)

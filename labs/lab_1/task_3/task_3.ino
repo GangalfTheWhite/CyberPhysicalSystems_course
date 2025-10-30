@@ -30,11 +30,11 @@ void loop() {
       break;
   }
 
-  Serial.print(num1)
-  Serial.print(" ")
-  Serial.print(op)
-  Serial.print(" ")
-  Serial.print(num2)
-  Serial.print(" = ")
-  Serial.print(result)
+  Serial.print(num1);
+  Serial.print(" ");
+  Serial.print(op);
+  Serial.print(" ");
+  Serial.print(num2);
+  Serial.print(" = ");
+  Serial.println(result);
 }

@@ -21,7 +21,12 @@ void loop() {
     Serial.print(WiFi.RSSI(i));
     Serial.print(" dBm | Encryption: ");
     Serial.println(WiFi.encryptionType(i));
+    Serial.print("Total networks found: ");
   }
+
+  // added a print for the total network count
+  Serial.println(numNetworks);
+
   // added and an extra empty println outside of the for loop
   // to increase the output readability
   Serial.println();
